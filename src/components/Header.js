@@ -24,28 +24,26 @@ const Header = () => {
           </NavLink>
         </Grid>
         <Grid item xs={1}>
-          <NavLink to="flights" end>
+          <NavLink to="flights">
             <Link>Flights</Link>
           </NavLink>
         </Grid>
         <Grid item xs={1}>
-          <NavLink to="users" end>
+          <NavLink to="users">
             <Link>Users</Link>
           </NavLink>
         </Grid>
         {isLoggedIn && (
           <Grid item xs={1}>
-            <Button onClick={logoutUser} to="sign-in">
-              Log Out
-            </Button>
+            <Button onClick={logoutUser}>Log Out</Button>
             <Avatar src={userInfo.image} alt=""></Avatar>
           </Grid>
         )}
         {!isLoggedIn && (
           <Grid item xs={1}>
-            <Button onClick={showLoginForm} to="log-in">
-              Log in
-            </Button>
+            <NavLink to="login">
+              <Button onClick={showLoginForm}>Log in</Button>
+            </NavLink>
           </Grid>
         )}
       </Grid>
