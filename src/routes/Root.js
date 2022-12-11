@@ -1,12 +1,13 @@
 import Header from "../components/Header";
 import { Outlet } from "react-router-dom";
+import { Container } from "@mui/material";
 
 const Root = () => {
   return (
-    <div className="container">
+    <Container>
       <Header />
       <Outlet />
-    </div>
+    </Container>
   );
 };
 

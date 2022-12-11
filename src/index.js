@@ -12,9 +12,7 @@ import Home from "./routes/Home";
 import NotFound from "./routes/NotFound";
 import Flights from "./routes/Flights";
 import Packages from "./routes/Packages";
-import Hotels from "./routes/Hotels"
-
-
+import Hotels from "./routes/Hotels";
 
 const router = createBrowserRouter([
   {
@@ -37,10 +35,6 @@ const router = createBrowserRouter([
       {
         path: "packages",
         element: <Packages />,
-      },
-      {
-        path: "sign-in",
-        element: <signIn />,
       },
     ],
   },

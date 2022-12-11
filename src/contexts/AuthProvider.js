@@ -16,6 +16,10 @@ const AuthProvider = ({ children }) => {
     return null;
   });
 
+  const [isOpen, setOpen] = () => useState(false);
+  const showLoginForm = () => setOpen(true); 
+  const closeLoginForm = () => setOpen(false);
+
   const loginUser = async (credentials) => {
     const user = await login(credentials);
     setUserInfo(user);
@@ -31,7 +35,15 @@ const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ isLoggedIn, userInfo, loginUser, logoutUser }}
+      value={{
+        isLoggedIn,
+        userInfo,
+        loginUser,
+        logoutUser,
+        showLoginForm,
+        closeLoginForm,
+        isOpen,
+      }}
     >
       {children}
     </AuthContext.Provider>
