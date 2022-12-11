@@ -1,44 +1,33 @@
 import { NavLink } from "react-router-dom";
+import Logo from "./Logo";
+import Grid from "@mui/material/Grid";
+import Button from "@mui/material/Button";
 
 const Header = () => {
   return (
-    <nav>
-      <ul className="menu-list">
-        <li>
-          <NavLink
-            className={({ isActive }) => (isActive ? "active" : "")}
-            to="/"
-            end
-          >
-            Home
+    <>
+      <Grid container spacing={0}>
+        <Grid item xs={4}>
+          <NavLink to="/" end>
+            <Logo />
           </NavLink>
-        </li>
-        <li>
-          <NavLink
-            className={({ isActive }) => (isActive ? "active" : "")}
-            to="users"
-          >
-            Users
+        </Grid>
+        <Grid item xs={1}>
+          <NavLink to="flights" end>
+            Flights
           </NavLink>
-        </li>
-        <li>
-          <NavLink
-            className={({ isActive }) => (isActive ? "active" : "")}
-            to="hotels"
-          >
-            Hotels
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            className={({ isActive }) => (isActive ? "active" : "")}
-            to="sign-up"
-          >
-            Sign Up
-          </NavLink>
-        </li>
-      </ul>
-    </nav>
+        </Grid>
+        <Grid item xs={1}>
+          <NavLink to="hotels">Hotels</NavLink>
+        </Grid>
+        <Grid>
+          <NavLink to="packages">Packages</NavLink>
+        </Grid>
+        <Grid item xs={1}>
+          <Button to="sign-in">Sign in</Button>
+        </Grid>
+      </Grid>
+    </>
   );
 };
 
