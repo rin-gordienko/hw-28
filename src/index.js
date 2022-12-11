@@ -10,9 +10,9 @@ import theme from "./theme";
 import Root from "./routes/Root";
 import Home from "./routes/Home";
 import NotFound from "./routes/NotFound";
-import Flights from "./routes/Flights";
-import Packages from "./routes/Packages";
-import Hotels from "./routes/Hotels";
+import User from "./routes/User";
+import Users from "./routes/Users";
+
 
 const router = createBrowserRouter([
   {
@@ -21,20 +21,16 @@ const router = createBrowserRouter([
     errorElement: <NotFound />,
     children: [
       {
-        path: "",
+        path: "/",
         element: <Home />,
       },
       {
-        path: "flights",
-        element: <Flights />,
+        path: "users",
+        element: <Users />,
       },
       {
-        path: "hotels",
-        element: <Hotels />,
-      },
-      {
-        path: "packages",
-        element: <Packages />,
+        path: "users/:userId",
+        element: <User />,
       },
     ],
   },

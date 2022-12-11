@@ -1,15 +1,17 @@
 import { NavLink } from "react-router-dom";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 
 import AuthContext from "../contexts/AuthContext";
-
+import LoginForm from "./LoginForm";
 import Logo from "./Logo";
 import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
-import { Link } from "@mui/material";
+import Link from "@mui/material/Link";
+import Avatar from "@mui/material/Avatar";
 
 const Header = () => {
-  const { isLoggedIn, userInfo, logoutUser } = useContext(AuthContext);
+  const { isLoggedIn, userInfo, logoutUser, showLoginForm, isVisible } =
+    useContext(AuthContext);
   return (
     <>
       <Grid container spacing={0}>
@@ -27,13 +29,8 @@ const Header = () => {
           </NavLink>
         </Grid>
         <Grid item xs={1}>
-          <NavLink to="hotels" end>
-            <Link>Hotels</Link>
-          </NavLink>
-        </Grid>
-        <Grid item xs={1}>
-          <NavLink to="packages" end>
-            <Link>Packages</Link>
+          <NavLink to="users" end>
+            <Link>Users</Link>
           </NavLink>
         </Grid>
         {isLoggedIn && (
@@ -41,7 +38,7 @@ const Header = () => {
             <Button onClick={logoutUser} to="sign-in">
               Log Out
             </Button>
-            <img src={userInfo.image} alt=""></img>
+            <Avatar src={userInfo.image} alt=""></Avatar>
           </Grid>
         )}
         {!isLoggedIn && (
@@ -52,6 +49,7 @@ const Header = () => {
           </Grid>
         )}
       </Grid>
+      {isVisible && <LoginForm />}
     </>
   );
 };

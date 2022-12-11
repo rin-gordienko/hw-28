@@ -16,9 +16,9 @@ const AuthProvider = ({ children }) => {
     return null;
   });
 
-  const [isOpen, setOpen] = () => useState(false);
-  const showLoginForm = () => setOpen(true); 
-  const closeLoginForm = () => setOpen(false);
+  const [isVisible, setVisible] =  useState(false);
+  const showLoginForm = () => setVisible(true); 
+  const closeLoginForm = () => setVisible(false);
 
   const loginUser = async (credentials) => {
     const user = await login(credentials);
@@ -42,7 +42,7 @@ const AuthProvider = ({ children }) => {
         logoutUser,
         showLoginForm,
         closeLoginForm,
-        isOpen,
+        isVisible,
       }}
     >
       {children}
