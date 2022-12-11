@@ -1,5 +1,7 @@
+import Typography from "@mui/material/Typography";
+
 const Home = () => {
-  return <h1 className="title">It's more than just a trip</h1>;
+  return <Typography variant="h1">It's more than just a trip</Typography>;
 };
 
 export default Home;

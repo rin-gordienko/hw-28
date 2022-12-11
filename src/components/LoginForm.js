@@ -21,26 +21,31 @@ const LoginForm = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Typography variant="h4">Sign up for Trimpa</Typography>
-      <Button type="button" onClick={closeLoginForm}>
-        {" "}
-        <CloseIcon />{" "}
-      </Button>
-      <Typography variant="subtitle-1">
-        Tripma is totally free to use. Sign up using your email address or phone
-        number below to get started.
-      </Typography>
       <Grid container spacing={3}>
-        <Grid item xs={4}>
+        <Grid display={"flex"} justifyContent={"space-between"} item xs={12}>
+          <Typography variant="h3">Log in to Trimpa</Typography>
+          <Button type="button" onClick={closeLoginForm}>
+            {" "}
+            <CloseIcon />{" "}
+          </Button>
+        </Grid>
+        <Grid item xs={12}>
+          <Typography variant="subtitle1">
+            Tripma is totally free to use. Sign up using your email address or
+            phone number below to get started.
+          </Typography>
+        </Grid>
+        <Grid item xs={12}>
           <Controller
             control={control}
-            name="contact"
+            name="username"
             rules={{ required: "The field is required" }}
             render={({ field, fieldState: { error } }) => (
               <TextField
                 {...field}
+                type="text"
                 fullWidth
-                label="Email or phone number"
+                label="Username"
                 variant="outlined"
                 error={!!error}
                 helperText={error?.message}
@@ -48,8 +53,7 @@ const LoginForm = () => {
             )}
           />
         </Grid>
-        <Grid item xs={4}>
-          {" "}
+        <Grid item xs={12}>
           <Controller
             control={control}
             name="password"
@@ -67,9 +71,13 @@ const LoginForm = () => {
             )}
           />
         </Grid>
-        <Grid>
-          <Button type="submit" variant="outlined" size="large">
-            Sign in
+        <Grid item xs={12}>
+          <Button
+            type="submit"
+            variant="outlined"
+            size="large"
+          >
+            Log in
           </Button>
         </Grid>
       </Grid>

@@ -1,4 +1,4 @@
-// !!!!!!!!
+
 import AuthProvider from "./contexts/AuthProvider";
 import React from "react";
 import ReactDOM from "react-dom/client";
@@ -12,7 +12,6 @@ import Home from "./routes/Home";
 import NotFound from "./routes/NotFound";
 import User from "./routes/User";
 import Users from "./routes/Users";
-
 
 const router = createBrowserRouter([
   {

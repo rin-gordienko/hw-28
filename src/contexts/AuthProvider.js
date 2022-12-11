@@ -16,11 +16,7 @@ const AuthProvider = ({ children }) => {
     return null;
   });
 
-  const [isVisible, setVisible] =  useState(false);
-  const showLoginForm = () => setVisible(true); 
-  const closeLoginForm = () => setVisible(false);
-
-  const loginUser = async (credentials) => {
+  const loginUser = async ({ credentials }) => {
     const user = await login(credentials);
     setUserInfo(user);
     setLoggedIn(true);
@@ -32,6 +28,10 @@ const AuthProvider = ({ children }) => {
     setLoggedIn(false);
     localStorage.removeItem("userInfo");
   };
+
+  const [isVisible, setVisible] = useState(false);
+  const showLoginForm = () => setVisible(true);
+  const closeLoginForm = () => setVisible(false);
 
   return (
     <AuthContext.Provider

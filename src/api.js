@@ -10,7 +10,6 @@ export const login = (credentials) => {
   }).then((res) => res.json());
 };
 
-
 export const getUsers = async () => {
   const response = await fetch(`${API_URL}/users`);
   const { users } = await response.json();
