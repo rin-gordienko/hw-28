@@ -14,8 +14,8 @@ const LoginForm = () => {
 
   const { loginUser, closeLoginForm } = useContext(AuthContext);
 
-  const onSubmit = (credentials) => {
-    loginUser(credentials);
+  const onSubmit = ({ username, password }) => {
+    loginUser({ username, password });
     closeLoginForm();
   };
 
@@ -72,11 +72,7 @@ const LoginForm = () => {
           />
         </Grid>
         <Grid item xs={12}>
-          <Button
-            type="submit"
-            variant="outlined"
-            size="large"
-          >
+          <Button type="submit" variant="outlined" size="large">
             Log in
           </Button>
         </Grid>

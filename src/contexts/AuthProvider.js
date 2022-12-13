@@ -16,8 +16,8 @@ const AuthProvider = ({ children }) => {
     return null;
   });
 
-  const loginUser = async ({ credentials }) => {
-    const user = await login(credentials);
+  const loginUser = async ( {username, password} ) => {
+    const user = await login({ username, password });
     setUserInfo(user);
     setLoggedIn(true);
     localStorage.setItem("userInfo", JSON.stringify(user));

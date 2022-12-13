@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { useContext } from "react";
-import "../index.css"
+import "../index.css";
 import AuthContext from "../contexts/AuthContext";
 import LoginForm from "./LoginForm";
 import Logo from "./Logo";
@@ -8,7 +8,6 @@ import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Avatar from "@mui/material/Avatar";
-
 
 const Header = () => {
   const { isLoggedIn, userInfo, logoutUser, showLoginForm, isVisible } =
