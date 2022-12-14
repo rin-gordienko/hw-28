@@ -8,10 +8,15 @@ import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Avatar from "@mui/material/Avatar";
+import Dialog from "@mui/material/Dialog";
 
 const Header = () => {
-  const { isLoggedIn, userInfo, logoutUser, showLoginForm, isVisible } =
-    useContext(AuthContext);
+  const { isLoggedIn, userInfo, logoutUser } = useContext(AuthContext);
+
+  const [isVisible, setVisible] = useState(false);
+  const showLoginForm = () => setVisible(true);
+  const closeLoginForm = () => setVisible(false);
+
   return (
     <>
       <Grid mt="20px" container spacing={0}>
@@ -51,6 +56,22 @@ const Header = () => {
             </NavLink>
           </Grid>
         )}
+        <Dialog>
+          <Grid display={"flex"} justifyContent={"space-between"} item xs={12}>
+            <Typography variant="h3">Log in to Trimpa</Typography>
+            <Button type="button" onClick={closeLoginForm}>
+              {" "}
+              <CloseIcon />{" "}
+            </Button>
+          </Grid>
+          <Grid item xs={12}>
+            <Typography variant="subtitle1">
+              Tripma is totally free to use. Sign up using your email address or
+              phone number below to get started.
+            </Typography>
+          </Grid>
+          <LoginForm />
+        </Dialog>
       </Grid>
 
       {isVisible && <LoginForm />}

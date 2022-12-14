@@ -29,10 +29,6 @@ const AuthProvider = ({ children }) => {
     localStorage.removeItem("userInfo");
   };
 
-  const [isVisible, setVisible] = useState(false);
-  const showLoginForm = () => setVisible(true);
-  const closeLoginForm = () => setVisible(false);
-
   return (
     <AuthContext.Provider
       value={{
@@ -42,7 +38,6 @@ const AuthProvider = ({ children }) => {
         logoutUser,
         showLoginForm,
         closeLoginForm,
-        isVisible,
       }}
     >
       {children}

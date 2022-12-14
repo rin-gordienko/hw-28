@@ -12,29 +12,16 @@ import CloseIcon from "@mui/icons-material/Close";
 const LoginForm = () => {
   const { handleSubmit, control } = useForm();
 
-  const { loginUser, closeLoginForm } = useContext(AuthContext);
+  const { loginUser } = useContext(AuthContext);
 
   const onSubmit = ({ username, password }) => {
     loginUser({ username, password });
-    closeLoginForm();
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <Grid container spacing={3}>
-        <Grid display={"flex"} justifyContent={"space-between"} item xs={12}>
-          <Typography variant="h3">Log in to Trimpa</Typography>
-          <Button type="button" onClick={closeLoginForm}>
-            {" "}
-            <CloseIcon />{" "}
-          </Button>
-        </Grid>
-        <Grid item xs={12}>
-          <Typography variant="subtitle1">
-            Tripma is totally free to use. Sign up using your email address or
-            phone number below to get started.
-          </Typography>
-        </Grid>
+
         <Grid item xs={12}>
           <Controller
             control={control}
