@@ -16,6 +16,7 @@ const theme = createTheme({
       color: "#605DEC",
       lineHeight: "90px",
       marginTop: "85px",
+ 
     },
     h3: {
       fontSize: "24px",
@@ -23,6 +24,7 @@ const theme = createTheme({
       color: "#605DEC",
       lineHeight: "33px",
       marginBottom: "16px",
+      
     },
     subtitle1: {
       fontSize: "18px",

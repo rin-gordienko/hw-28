@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import "../index.css";
 import AuthContext from "../contexts/AuthContext";
 import LoginForm from "./LoginForm";
@@ -9,6 +9,8 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Avatar from "@mui/material/Avatar";
 import Dialog from "@mui/material/Dialog";
+import Box from "@mui/material/Box";
+import CloseIcon from "@mui/icons-material/Close";
 
 const Header = () => {
   const { isLoggedIn, userInfo, logoutUser } = useContext(AuthContext);
@@ -56,25 +58,30 @@ const Header = () => {
             </NavLink>
           </Grid>
         )}
-        <Dialog>
-          <Grid display={"flex"} justifyContent={"space-between"} item xs={12}>
-            <Typography variant="h3">Log in to Trimpa</Typography>
-            <Button type="button" onClick={closeLoginForm}>
-              {" "}
-              <CloseIcon />{" "}
-            </Button>
-          </Grid>
-          <Grid item xs={12}>
-            <Typography variant="subtitle1">
-              Tripma is totally free to use. Sign up using your email address or
-              phone number below to get started.
-            </Typography>
-          </Grid>
-          <LoginForm />
+        <Dialog open={isVisible} onClose={closeLoginForm}>
+          <Box m="30px">
+            <Grid
+              display={"flex"}
+              justifyContent={"space-between"}
+              item
+              xs={12}
+            >
+              <Typography variant="h3">Log in to Trimpa</Typography>
+              <Button type="button" onClick={closeLoginForm}>
+                {" "}
+                <CloseIcon />{" "}
+              </Button>
+            </Grid>
+            <Grid item xs={12}>
+              <Typography variant="subtitle1">
+                Tripma is totally free to use. Sign up using your email address
+                or phone number below to get started.
+              </Typography>
+            </Grid>
+            <LoginForm closeLoginForm={closeLoginForm} />
+          </Box>
         </Dialog>
       </Grid>
-
-      {isVisible && <LoginForm />}
     </>
   );
 };

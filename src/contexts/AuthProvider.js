@@ -36,8 +36,6 @@ const AuthProvider = ({ children }) => {
         userInfo,
         loginUser,
         logoutUser,
-        showLoginForm,
-        closeLoginForm,
       }}
     >
       {children}
